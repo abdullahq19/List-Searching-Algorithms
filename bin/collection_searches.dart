@@ -2,7 +2,7 @@ void main() {
   List<int> arr = [];
 
   for (int i = 0; i < 10e6; i++) {
-    // Uniform list of 10 million elements integers
+    // Uniform elements list of 10 million integers
     arr.add(i + 1);
   }
   var (index, iterations) = Solution().linearSearch(arr, 8891407);
@@ -20,7 +20,6 @@ void main() {
 
 class Solution {
   // Stopwatch to calculate function execution time
-
   Stopwatch sw = Stopwatch();
 
   // Function for linear search
@@ -83,6 +82,7 @@ class Solution {
     return (-1, iterations);
   }
 
+  // Function for interpolation search
   (int, int) interpolationSearch(List<int> arr, int target) {
     // Stopwatch starts
     sw.start();
