@@ -6,6 +6,7 @@ void main() {
     arr.add(i + 1);
   }
   var (index, iterations) = Solution().linearSearch(arr, 8891407);
+  // var (index, iterations) = Solution().hashSearch(arr, 8891407);
   // var (index, iterations) = Solution().binarySearch(arr, 8891407);
   // var (index, iterations) = Solution().interpolationSearch(arr, 8891407);
 
@@ -43,6 +44,33 @@ class Solution {
     sw.stop();
 
     print('Linear Search');
+    print('Time Taken: ${sw.elapsed.inMicroseconds.toString()}ms');
+    return (-1, iterations);
+  }
+
+  // Function for hash search
+  (int, int) hashSearch(List<int> arr, int target) {
+    // Stopwatch starts
+    sw.start();
+
+    Map<int, int> hashMap = {};
+    int iterations = 0;
+
+    for (int i = 0; i < arr.length; i++) {
+      hashMap[arr[i]] = i;
+      iterations++;
+    }
+
+    if (hashMap.containsKey(target)) {
+      // Stoping stopwatch when element is found
+      sw.stop();
+      print('Hash Search');
+      print('Time Taken: ${sw.elapsed.inMicroseconds.toString()}ms');
+      return (hashMap[target]!, iterations);
+    }
+    // Stoping stopwatch when element is found
+    sw.stop();
+    print('Hash Search');
     print('Time Taken: ${sw.elapsed.inMicroseconds.toString()}ms');
     return (-1, iterations);
   }
